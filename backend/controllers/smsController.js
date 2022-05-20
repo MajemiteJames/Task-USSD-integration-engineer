@@ -46,7 +46,6 @@ const sms = asyncHandler((req, res) => {
                   messageId:`${result.messages[0].messageId}`,
                  description:`${result.messages[0].status.description}`}
               ]
-                //console.log(result.messages.status);
                 csvWriter.writeRecords(records)       // returns a promise
             .then(() => {
               csvWriter.writeRecords(records)
@@ -67,10 +66,9 @@ const sms = asyncHandler((req, res) => {
     console.log(error)
   });
   res.status(201).json({
-                status: 201,
-                message: "sms sent successfully"
-                
-            })
+    status: 201,
+    message: "sms sent successfully"
+    })
 });
 
 
